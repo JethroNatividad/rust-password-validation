@@ -24,10 +24,17 @@ fn get_input<T: std::str::FromStr>(prompt: &str) -> T {
 
 fn main() {
     // set a password
-    let password: &str = "pass";
+    let password: String = "pass".to_string();
     // prompt for input_password: "What is the password?"
+    let input_password: String = get_input("What is the password? ");
     // compare input_password and password, if match
         // print "Welcome!"
     // if not match
         // print "I don't know you!"
+    if password.eq(&input_password) {
+        println!("Welcome");
+    } else {
+        println!("I don't know you!");
+    }
+    
 }
