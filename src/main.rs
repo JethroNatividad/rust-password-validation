@@ -22,10 +22,23 @@ fn get_input<T: std::str::FromStr>(prompt: &str) -> T {
     }
 }
 
+struct User {
+    username: String,
+    password: String
+}
 
 fn main() {
     // Set a list of users
-    let password: String = "pass".to_string();
+    let users: Vec<User> = vec![
+        User {
+            username: "arthur",
+            password: "iamarthur"
+        },
+        User {
+            username: "john",
+            password: "iamjohn"
+        }
+    ]
     // prompt for input_username: "What is the username?"
         // If not exist in users, ask again.
     // prompt for input_password: "What is the password?"
