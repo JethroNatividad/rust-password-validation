@@ -1,5 +1,8 @@
+extern crate bcrypt;
+
 use std::io;
 use std::io::Write;
+use bcrypt::{verify};
 
 // Program that has a hard coded password, takes in a password, and if password matches, show "Welcome!", else show "I don't know you!"
 
