@@ -45,7 +45,7 @@ fn main() {
     // prompt for input_username: "What is the username?"
     let input_username: String = get_input("What is the username? ");
         // If not exist in users, ask again.
-    let username_exists = users.iter().find(|user| user.username.contains(&input_username));
+    let username_exists = users.iter().find(|user| user.username == input_username);
 
     if let Some(user) = username_exists {
         // prompt for input_password: "What is the password?"
