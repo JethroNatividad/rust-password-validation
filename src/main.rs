@@ -54,7 +54,7 @@ fn main() {
             // print "Welcome!"
         // if not match
             // print "I don't know you!"
-        let valid = verify(&input_password, &password)?;
+        let valid = verify(&input_password, &user.password).unwrap();
         if valid {
             println!("Welcome");
         } else {
