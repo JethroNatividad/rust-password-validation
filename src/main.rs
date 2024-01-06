@@ -4,11 +4,11 @@ use std::io;
 use std::io::Write;
 use bcrypt::{verify};
 
-// Program that has a hard coded password, takes in a password, and if password matches, show "Welcome!", else show "I don't know you!"
+// Program that has a list of users, takes in a username and password, and if username and password matches, show "Welcome, Username!", else show "Incorrect password!"
 
-// Inputs: password
-// Process: compare
-// Outputs: if match: "Welcome!", else "I don't know you!"
+// Inputs: username, password
+// Process: find username in vector, if exist compare password with bcrypt verify.
+// Outputs: if match: "Welcome, Username!", else "Incorrect password!"
 
 fn get_input<T: std::str::FromStr>(prompt: &str) -> T {
     loop {
@@ -51,18 +51,16 @@ fn main() {
         // prompt for input_password: "What is the password?"
         let input_password: String = get_input("What is the password? ");
         // compare input_password and user password, if match
-            // print "Welcome!"
+            // print "Welcome, Username!"
         // if not match
-            // print "I don't know you!"
-        let valid = verify(&input_password, &user.password).unwrap();
-        if valid {
-            println!("Welcome");
+            // print "Incorrect password!"
+        if verify(&input_password, &user.password).unwrap() {
+            println!("Welcome, {}!", user.username);
         } else {
-            println!("I don't know you!");
+            println!("Incorrect password!");
         }
     } else {
         println!("Cannot find Username!");
     }
 
-    
 }
