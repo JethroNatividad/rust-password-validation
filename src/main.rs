@@ -31,26 +31,34 @@ fn main() {
     // Set a list of users
     let users: Vec<User> = vec![
         User {
-            username: "arthur",
-            password: "iamarthur"
+            username: "arthur".to_string(),
+            password: "iamarthur".to_string()
         },
         User {
-            username: "john",
-            password: "iamjohn"
+            username: "john".to_string(),
+            password: "iamjohn".to_string()
         }
-    ]
+    ];
     // prompt for input_username: "What is the username?"
+    let input_username: String = get_input("What is the username? ");
         // If not exist in users, ask again.
-    // prompt for input_password: "What is the password?"
-    let input_password: String = get_input("What is the password? ");
-    // compare input_password and user password, if match
-        // print "Welcome!"
-    // if not match
-        // print "I don't know you!"
-    if password.eq(&input_password) {
-        println!("Welcome");
+    let username_exists = users.iter().find(|user| user.username.contains(&input_username));
+
+    if let Some(user) = username_exists {
+        // prompt for input_password: "What is the password?"
+        let input_password: String = get_input("What is the password? ");
+        // compare input_password and user password, if match
+            // print "Welcome!"
+        // if not match
+            // print "I don't know you!"
+        if user.password.eq(&input_password) {
+            println!("Welcome");
+        } else {
+            println!("I don't know you!");
+        }
     } else {
-        println!("I don't know you!");
+        println!("Cannot find Username!");
     }
+
     
 }
