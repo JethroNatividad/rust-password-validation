@@ -32,11 +32,11 @@ fn main() {
     let users: Vec<User> = vec![
         User {
             username: "arthur".to_string(),
-            password: "iamarthur".to_string()
+            password: "$2a$12$NkAu.TNtuW7tRejzKPKduO1QxhkwLmAyizXnflTGRPtiFlKXjm9qK".to_string()
         },
         User {
             username: "john".to_string(),
-            password: "iamjohn".to_string()
+            password: "$2a$12$BArgAwz74L2n8ziSctOjwuVLxCmw4LwWO8ZkRJWDoMKrPpbn0P61q".to_string()
         }
     ];
     // prompt for input_username: "What is the username?"
